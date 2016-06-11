@@ -37,6 +37,7 @@ for performing a blocking wait for the computation's result.
 This is possible with it's main implementation, `CompletableFuture`.
 
 A computation can essentially end in two ways:
+
 1. Successful completion, in which case the result is passed
  to downstream success or catch-all callbacks;
 2. Exceptional completion, in which an exception is passed to
