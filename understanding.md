@@ -36,6 +36,8 @@ A striking feature of `CompletionStage` is its lack of methods
 for performing a blocking wait for the computation's result.
 This is possible with it's main implementation, `CompletableFuture`.
 
+## How the results of computations propagate
+
 A computation can essentially end in two ways:
 
 1. Successful completion, in which case the result is passed
@@ -89,3 +91,23 @@ CompletionStage<String> a =getUserName()
         .thenAccept(r -> LOGGER.info("Great success!"))
         .whenComplete((r, t) -> LOGGER.info("Still called"));
 ```
+
+## How to derive a computation
+
+Nearly all methods of `CompletionStage` produce a derived
+computation.
+These are explained below.
+
+### [`thenApply`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html#thenApply-java.util.function.Function-)
+
+The `thenApply` method (and variants) performs a simple map operation
+using the `java.util.Function` passed as parameter.
+This `Function` will be called (on success) with the original
+computation's result.
+
+### [`thenAccept`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html#thenAccept-java.util.function.Consumer-)
+
+The `thenAccept` method (and variants) calls the `java.util.Consumer`
+ passed as parameter, effectively "consuming" it.
+This derivation will produce a `CompletionStage<Void>`, meaning
+any derived computations will receive `Void` as a result.
