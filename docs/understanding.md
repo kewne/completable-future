@@ -34,7 +34,7 @@ after the call to `String#toUpperCase`, `b` completes as well.
 
 A striking feature of `CompletionStage` is its lack of methods
 for performing a blocking wait for the computation's result.
-This is possible with it's main implementation, `CompletableFuture`.
+This is possible with it's main implementation, `CompletableFuture` (although not recommended).
 
 ## How the results of computations propagate
 
