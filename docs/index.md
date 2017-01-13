@@ -1,3 +1,6 @@
+---
+layout: layout
+---
 # `CompletableFuture`
 
 Java 8 has introduced the `CompletableFuture` class, which implements
