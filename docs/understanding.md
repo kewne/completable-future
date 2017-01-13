@@ -1,3 +1,6 @@
+---
+layout: base
+---
 # Understanding the `CompletionStage` interface
 
 The documentation for the [`CompletionStage`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletionStage.html)
